@@ -64,7 +64,7 @@
 
 
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://pchums1011.github.io/iwasco-gis" target="_blank">Iwasco Gis</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; Done by <a href="https://pchums1011.github.io/iwasco-gis">Kirui</a>');
+        map.attributionControl.setPrefix('<a href="https://pchums1011.github.io/iwasco-gis" target="_blank">Iwasco Gis</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; Done by <a href="https://pchums1011.github.io/iwasco-gis">Pchums</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
@@ -395,6 +395,11 @@
         map.on("layerremove", function(){
             resetLabels([layer_meter_6]);
         });
+        var metres = scale._getRoundNum(map.containerPointToLatLng([0, map.getSize().y / 2 ]).distanceTo( map.containerPointToLatLng([scale.options.maxWidth,map.getSize().y / 2 ])))
+                label = metres < 1000 ? metres + ' m' : (metres / 1000) + ' km';
+
+                console.log(label);
+
 
         map.setView([0.34881, 37.58482], 14);
 
